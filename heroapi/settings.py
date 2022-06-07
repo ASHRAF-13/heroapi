@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=o*-=fzeccu-os9prqhzf2q8hza5s5u1k1yx=39g6_n0!z-0d*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','myapihero.herokuapp.com','192.168.29.170']
+ALLOWED_HOSTS = ['localhost','myapihero.herokuapp.com']
 
 
 # Application definition
@@ -40,12 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'MyApp',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -126,3 +128,5 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_ALL_ORIGINS: True
